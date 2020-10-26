@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+/* variable */
+
+:root {
+    --primary-color: #047aed;
+    --secondary-color: #1c3188;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+    --primary-text-color: #fff;
+    --secondary-text-color: #333;
+    --success-color: #5cb85c;
+    --error-color: #d9534f;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Font, color and linehight of text */
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* removed dotes */
+
+ul {
+    list-style: none;
+}
+
+
+/* text underline deleted and set color of links */
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+/*  font weight.line hight and margin top and bottom*/
+
+h1,
+h2 {
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+
+/*  margin on top and bottom */
+
+p {
+    margin: 10px 0;
+}
+
+
+/* prevent to img goes out of container if picture is bigger thant cintainer */
+
+img {
+    width: 100%;
+}
+
+
+/*  Navbar, background, color and height */
+
+.navbar {
+    background-color: var(--primary-color);
+    color: #fff;
+    height: 70px;
+    border-bottom: 2px solid #fff;
+}
+
+.navbar .flex {
+    justify-content: space-between;
+    /* we set both of them to separate side */
+    /* on flex class we kept justify-content: center to reuse class on another places */
+}
+
+.navbar ul {
+    display: flex;
+    /* we translete the ul links into horizontal  */
+}
+
+.navbar a {
+    color: var(--primary-text-color);
+    /* color */
+    padding: 10px;
+    /* insert space btw links */
+    margin: 0 5px;
+}
+
+.navbar a:hover {
+    border-top: 1px solid var(--primary-text-color);
+}
+
+
+/* showcase section */
+
+.showcase h1 {
+    font-size: 40px;
+}
+
+.showcase p {
+    padding: 20px 0;
+    /*  to have more space in show case */
+}
+
+.showcase {
+    height: 400px;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    position: relative;
+    /*  to be able position the some elements inside as absolute */
+}
+
+
+/* grid properties which we will applay only on show case desktop */
+
+.showcase .grid {
+    overflow: visible;
+    /*  overflow visable give possibility of element to go out of container */
+    grid-template-columns: 55% 45%;
+    /* share showcase */
+    gap: 30px;
+    /* gap btw divs */
+}
+
+
+/* showcase form */
+
+
+/* card */
+
+.showcase-form {
+    position: relative;
+    /*howwewillbeabletopositionaswewant*/
+    top: 70px;
+    /*wepushthecardulittlebitdown*/
+    height: 350px;
+    /*whenwesettheheightisshownscrollbarandthatwedonotwanttosee*/
+    /*wewanttocargououtsideofcontainerandthatwecandowithovrflowvisableonparentcontainer*/
+    width: 300px;
+    padding: 40px;
+    z-index: 100;
+    /*animation after we added keyframe */
+    animation: slideInFromRight 1s ease-in;
+}
+
+.showcase-form .form-control {
+    margin: 30px 0;
+    /* separate the input from each other */
+}
+
+
+/*  inpuput properties into form */
+
+.showcase-form input[type='text'],
+.showcase-form input[type='email'] {
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    /* width 100% to input take full space of card */
+    padding: 3px;
+    font-size: 16px;
+}
+
+.showcase-form input:focus {
+    outline: none;
+}
+
+
+/* swowcase  slant on the bottom of showcase contet */
+
+.showcase::before,
+.showcase::after {
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background: var(--primary-text-color);
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+    -o-transform: skewY(-3deg);
+}
+
+
+/* show case animation after we create keyframe */
+
+.showcase-text {
+    animation: slideInFromLeft 1s ease-in;
+    -webkit-animation: slideInFromLeft 1s ease-in;
+}
+
+
+/* Stats */
+
+.stats {
+    padding-top: 100px;
+}
+
+.stats-heading {
+    max-width: 500px;
+    /* adding the with on the heading we squise text */
+    margin: auto;
+    /* we centered text in the middle of window */
+}
+
+.stats .grid h3 {
+    font-size: 34px;
+}
+
+.stats .grid p {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+
+/*  cli */
+
+.cli .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid>*:first-child {
+    /* take anything which is first child, in this case that is image, we could select image, but maybe we will want to have something else */
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+
+
+/* Cloud */
+
+.cloud .grid {
+    grid-template-columns: 4fr 3fr;
+    /* shared space for two divs */
+}
+
+
+/* Languages */
+
+.languages .flex {
+    flex-wrap: wrap;
+    /* when we resize the window elemns will wrap to next column */
+}
+
+.languages .card {
+    text-align: center;
+    /*textcentriran*/
+    margin: 18px 10px 40px;
+    /*addingtransitionontransformwhichweaddonhover.card*/
+    transition: transform 0.2s ease-in;
+    -webkit-transition: transform 0.2s ease-in;
+    -moz-transition: transform 0.2s ease-in;
+    -ms-transition: transform 0.2s ease-in;
+    -o-transition: transform 0.2s ease-in;
+}
+
+.languages .card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.languages .card:hover {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+}
+
+
+/* Footer */
+
+.footer .social a {
+    margin: 0 10px;
+}
+
+.footer-info {
+    color: var(--primary-text-color);
+}
+
+
+/* Features page */
+
+.features-head img {
+    width: 200px;
+    /* set picture  */
+    justify-self: flex-end;
+    /*  we put the image on the end of his container */
+}
+
+.features-sub-head img {
+    width: 250px;
+    /* set picture  */
+    justify-self: flex-end;
+    /*  we put the image on the end of his container */
+}
+
+
+/* features main */
+
+.features-main .card>i {
+    margin-right: 20px;
+    /* will push the text from the icon */
+}
+
+.features-main .grid {
+    padding: 30px;
+}
+
+.features-main .grid>*:first-child {
+    grid-column: 1 / span 3;
+}
+
+.features-main .grid>*:nth-child(2) {
+    grid-column: 1 / span 2;
+}
+
+
+/* Docs page */
+
+.docs-head img {
+    width: 200px;
+    /* set picture  */
+    justify-self: flex-end;
+    /*  we put the image on the end of his container */
+}
+
+.docs-main h3 {
+    margin: 20px 0;
+    /* put the space  */
+}
+
+
+/*  share the vw port */
+
+.docs-main .grid {
+    grid-template-columns: 1fr 2fr;
+    align-items: flex-start;
+    /*  position on the top of container */
+}
+
+.docs-main nav li {
+    font-size: 18px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.docs-main a:hover {
+    font-weight: bold;
+}
+
+pre,
+code {
+    background-color: var(--secondary-text-color);
+    color: var(--primary-text-color);
+    padding: 10px;
+}
+
+
+/* form class for netlofy */
+
+
+/* hide the paragraf and input which is part of submition form */
+
+.hidden {
+    visibility: hidden;
+    height: 0px;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Animations */
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+    }
+    100% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        -webkit-transform: translateY(100%);
+        -moz-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        -o-transform: translateY(100%);
+    }
+    100% {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+
+
+/* Media Tablet and under */
+
+@media(max-width: 768px) {
+    /* grid properies set all in one column */
+    .grid,
+    .showcase .grid,
+    .stats .grid,
+    .cli .grid,
+    .cloud .grid,
+    .features-main .grid,
+    .docs-main .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    .showcase {
+        height: auto;
+        /* set the height auto how to show case use entier container space and push element down */
+    }
+    .showcase-text {
+        text-align: center;
+        /*alingallinthemiddle*/
+        margin-top: 40px;
+        /*pushdowalittlebit*/
+        /*keyframeanimatio*/
+        animation: slideInFromTop 1s ease-in;
+        -webkit-animation: slideInFromTop 1s ease-in;
+    }
+    .showcase-form {
+        justify-self: center;
+        /*wecenteredelementinthemiddlehorizontalandvertical*/
+        margin: auto;
+        /*keyfarmeanimatio*/
+        animation: slideInFromBottom 1s ease-in;
+        -webkit-animation: slideInFromBottom 1s ease-in;
+    }
+    .cli .grid>*:first-child {
+        grid-column: 1;
+        grid-row: 1;
+        /* we set elemens */
+    }
+    .features-head,
+    .features-sub-head,
+    .docs-head {
+        text-align: center;
+        /* text has been centered */
+    }
+    .features-head img,
+    .features-sub-head img,
+    .docs-head img {
+        justify-self: center;
+        /* imges has been centered */
+    }
+    .features-main .grid>*:first-child {
+        grid-column: 1;
+    }
+    .features-main .grid>*:nth-child(2) {
+        grid-column: 1;
+    }
+}
+
+
+/* Mobile */
+
+@media(max-width: 500px) {
+    .navbar {
+        /* navbar set into columns */
+        height: 110px;
+        border-bottom: none;
+    }
+    .navbar .flex {
+        flex-direction: column;
+    }
+    .navbar ul {
+        /* background and padding for links */
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    .navbar a:hover {
+        border-bottom: 1px solid var(--primary-text-color);
+    }
+}
